@@ -1,17 +1,17 @@
 package Estructuras;
 
-class Hoja implements Estructura {
+class Hoja implements Lista {
 
     private int numero;
-
-    @Override
-    public void imprimir() {
-        System.out.println(numero);
+    
+    public Hoja(int numero){
+        this.numero = numero;
     }
 
     @Override
-    public void insertar(int numero) {
-        this.numero = numero;
+    public void imprimir() {
+        System.out.println("Hoja");
+        System.out.println(numero);
     }
 
     int getNumero() {
