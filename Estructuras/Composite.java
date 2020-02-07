@@ -2,30 +2,29 @@ package Estructuras;
 
 class Composite implements Lista{
 
-    private Lista estructura;
+    private Lista lista;
     private final Hoja hoja;
 
-    public Composite(int numeroTemporal, int numero){
-        hoja = new Hoja(numeroTemporal);
-        estructura = new Hoja(numero);
+    public Composite(Lista lista, Hoja hoja){
+        this.lista = lista;
+        this.hoja = hoja;
     }
 
     @Override
     public void imprimir() {
         System.out.println("Composite");
         hoja.imprimir();
-        estructura.imprimir();
+        lista.imprimir();
     }
 
-    public void insertar(int numero){
-        if ("Hoja".equals(estructura.getClass().getSimpleName())){
-            Hoja hojaTemporal = (Hoja) estructura;
-            int numeroTemporal = hojaTemporal.getNumero();
-            estructura = new Composite(numeroTemporal, numero);
+    void insertar(int numero) {
+        if ("Hoja".equals(lista.getClass().getSimpleName())){
+            lista = new Composite(new Hoja(numero), (Hoja) lista);
         } else {
-            Composite listaTemporal = (Composite) estructura;
+            Composite listaTemporal = (Composite) lista;
             listaTemporal.insertar(numero);
         }
     }
+    
 
 }

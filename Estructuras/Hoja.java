@@ -2,7 +2,7 @@ package Estructuras;
 
 class Hoja implements Lista {
 
-    private int numero;
+    private final int numero;
     
     public Hoja(int numero){
         this.numero = numero;
@@ -12,10 +12,6 @@ class Hoja implements Lista {
     public void imprimir() {
         System.out.println("Hoja");
         System.out.println(numero);
-    }
-
-    int getNumero() {
-        return numero;
     }
 
 }

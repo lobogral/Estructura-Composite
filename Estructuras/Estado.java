@@ -15,24 +15,15 @@ public class Estado {
     public void insertar(int numero){
         switch (lista.getClass().getSimpleName()) {
             case "Vacio":
-            {
                 lista = new Hoja(numero);
                 break;
-            }
             case "Hoja":
-            {
-                Hoja hojaTemporal = (Hoja) lista;
-                int numeroTemporal = hojaTemporal.getNumero();
-                Composite listaTemporal = new Composite(numeroTemporal, numero);
-                lista = listaTemporal;
+                lista = new Composite(new Hoja(numero), (Hoja) lista);
                 break;
-            }
             case "Composite":
-            {
-                Composite listaTemporal = (Composite) lista;
-                listaTemporal.insertar(numero);
+                Composite composite = (Composite) lista;
+                composite.insertar(numero);
                 break;
-            }
         }
     }
 }
