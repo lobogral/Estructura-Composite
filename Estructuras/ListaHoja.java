@@ -1,10 +1,10 @@
 package Estructuras;
 
-class Hoja implements Lista {
+class ListaHoja implements Lista {
 
-    private final int numero;
-    
-    public Hoja(int numero){
+    private int numero;
+
+    public ListaHoja(int numero){
         this.numero = numero;
     }
 

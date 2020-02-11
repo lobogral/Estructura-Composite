@@ -1,11 +1,11 @@
 package Estructuras;
 
-class Composite implements Lista{
+class Composite implements Estado, Lista{
 
     private Lista lista;
-    private final Hoja hoja;
+    private final ListaHoja hoja;
 
-    public Composite(Lista lista, Hoja hoja){
+    public Composite(Lista lista, ListaHoja hoja){
         this.lista = lista;
         this.hoja = hoja;
     }
@@ -17,14 +17,15 @@ class Composite implements Lista{
         lista.imprimir();
     }
 
-    void insertar(int numero) {
-        if ("Hoja".equals(lista.getClass().getSimpleName())){
-            lista = new Composite(new Hoja(numero), (Hoja) lista);
+    @Override
+    public void insertar(int numero) {
+        if ("ListaHoja".equals(lista.getClass().getSimpleName())){
+            lista = new Composite(new ListaHoja(numero), 
+                                      (ListaHoja) lista);
         } else {
-            Composite listaTemporal = (Composite) lista;
-            listaTemporal.insertar(numero);
+            Composite listaComposite = (Composite) lista;
+            listaComposite.insertar(numero);
         }
     }
-    
 
 }
