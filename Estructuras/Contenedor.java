@@ -2,21 +2,17 @@ package Estructuras;
 
 public class Contenedor {
 
-    private Estado estado;
+    private Estructura estructura;
 
     public Contenedor(){
-        estado = new EstadoVacio(this);
-    }
-
-    void setEstado(Estado estado){
-        this.estado = estado;
+        estructura = new EVacio();
     }
 
     public void imprimir(){
-        estado.imprimir();
+        estructura.imprimir();
     }
 
     public void insertar(int numero){
-        estado.insertar(numero);
+        estructura = estructura.insertar(numero);
     }
 }
