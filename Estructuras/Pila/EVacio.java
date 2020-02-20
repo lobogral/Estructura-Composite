@@ -1,16 +1,20 @@
-package Estructuras;
+package Estructuras.Pila;
 
 class EVacio implements Estructura {
 
     @Override
-    public void imprimir() {
-        System.out.println("Vacio");
-        System.out.println("No hay elementos");
+    public String imprimir() {
+        return "";
     }
 
     @Override
     public Estructura insertar(int numero) {
         return new EHoja(numero);
+    }
+
+    @Override
+    public Estructura eliminar() {
+        return this;
     }
 
 }

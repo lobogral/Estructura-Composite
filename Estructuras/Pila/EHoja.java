@@ -1,4 +1,4 @@
-package Estructuras;
+package Estructuras.Pila;
 
 class EHoja implements Estructura {
 
@@ -9,14 +9,18 @@ class EHoja implements Estructura {
     }
 
     @Override
-    public void imprimir() {
-        System.out.println("Hoja");
-        System.out.println(numero);
+    public String imprimir() {
+        return "" + numero;
     }
 
     @Override
     public Estructura insertar(int numero) {
-        return new EComposite(new EHoja(this.numero), new EHoja(numero));
+        return new EComposite(this, new EHoja(numero));
+    }
+
+    @Override
+    public Estructura eliminar() {
+        return new EVacio();
     }
 
 }

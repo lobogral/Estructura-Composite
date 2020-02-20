@@ -1,8 +1,8 @@
-package Estructuras;
+package Estructuras.Pila;
 
 class EComposite implements Estructura {
 
-    private Estructura lista;
+    private final Estructura lista;
     private final EHoja hoja;
 
     public EComposite(Estructura lista, EHoja hoja){
@@ -11,15 +11,18 @@ class EComposite implements Estructura {
     }
 
     @Override
-    public void imprimir() {
-        lista.imprimir();
-        hoja.imprimir();
-        System.out.println("Composite");
+    public String imprimir() {
+        return hoja.imprimir() + ", " + lista.imprimir();
     }
 
     @Override
     public Estructura insertar(int numero) {
         return new EComposite(this, new EHoja(numero));
+    }
+
+    @Override
+    public Estructura eliminar() {
+        return lista;
     }
 
 }

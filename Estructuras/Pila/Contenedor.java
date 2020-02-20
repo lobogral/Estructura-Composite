@@ -1,4 +1,4 @@
-package Estructuras;
+package Estructuras.Pila;
 
 public class Contenedor {
 
@@ -9,10 +9,14 @@ public class Contenedor {
     }
 
     public void imprimir(){
-        estructura.imprimir();
+        System.out.println("[" + estructura.imprimir() + "]");
     }
 
     public void insertar(int numero){
         estructura = estructura.insertar(numero);
+    }
+    
+    public void eliminar() {
+        estructura = estructura.eliminar();
     }
 }
