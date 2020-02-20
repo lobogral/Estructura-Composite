@@ -12,15 +12,14 @@ class EComposite implements Estructura {
 
     @Override
     public void imprimir() {
-        System.out.println("Composite");
-        hoja.imprimir();
         lista.imprimir();
+        hoja.imprimir();
+        System.out.println("Composite");
     }
 
     @Override
     public Estructura insertar(int numero) {
-        lista = lista.insertar(numero);
-        return this;
+        return new EComposite(this, new EHoja(numero));
     }
 
 }

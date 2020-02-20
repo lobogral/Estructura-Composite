@@ -16,7 +16,7 @@ class EHoja implements Estructura {
 
     @Override
     public Estructura insertar(int numero) {
-        return new EComposite(new EHoja(numero), new EHoja(this.numero));
+        return new EComposite(new EHoja(this.numero), new EHoja(numero));
     }
 
 }
