@@ -1,22 +1,27 @@
-import Estructuras.Pila.Contenedor;
+import Estructuras.Cola.Contenedor;
 
 public class Principal {
 
     public static void main(String[] args) {
         
-        int num = 10;
+        int num = 6;
         
         Contenedor lista = new Contenedor();
+        lista.imprimir();
+        
         for(int i=0; i<num; i++){
-            lista.imprimir();
             lista.insertar(i+1);
-        }
-        
-        for(int i=0; i<num; i++){
             lista.imprimir();
-            lista.eliminar();
         }
         
+        for(int i=0; i<num + 1; i++){
+            lista.eliminar();
+            lista.imprimir();
+        }
+        
+        lista.insertar(33);
+        lista.imprimir();
+        lista.eliminar();
         lista.imprimir();
 
     }

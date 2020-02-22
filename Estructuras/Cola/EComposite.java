@@ -1,8 +1,8 @@
-package Estructuras.Pila;
+package Estructuras.Cola;
 
 class EComposite implements Estructura {
 
-    private final Estructura estructura;
+    private Estructura estructura;
     private final EHoja hoja;
 
     public EComposite(Estructura estructura, EHoja hoja){
@@ -17,7 +17,8 @@ class EComposite implements Estructura {
 
     @Override
     public Estructura insertar(int numero) {
-        return new EComposite(this, new EHoja(numero));
+        estructura = new EComposite(new EHoja(numero), (EHoja) estructura);
+        return estructura;
     }
 
     @Override
