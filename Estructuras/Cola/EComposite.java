@@ -17,8 +17,7 @@ class EComposite implements Estructura {
 
     @Override
     public Estructura insertar(int numero) {
-        estructura = new EComposite(new EHoja(numero), (EHoja) estructura);
-        return estructura;
+        return estructura = new EComposite(new EHoja(numero),(EHoja)estructura);
     }
 
     @Override

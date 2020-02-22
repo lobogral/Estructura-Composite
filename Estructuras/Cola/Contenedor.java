@@ -2,30 +2,33 @@ package Estructuras.Cola;
 
 public class Contenedor {
 
-    private Estructura estructura;
-    private Estructura insercion;
+    private Estructura primero;
+    private Estructura ultimo;
 
     public Contenedor(){
         EVacio eVacio = new EVacio();
-        estructura = eVacio;
-        insercion = eVacio;
+        primero = eVacio;
+        ultimo = eVacio;
     }
 
     public void imprimir(){
-        System.out.println("[" + estructura.imprimir() + "]");
+        System.out.println("[" + primero.imprimir() + "]");
     }
 
     public void insertar(int numero){
-        insercion = insercion.insertar(numero);
-        if(!"EComposite".equals(estructura.getClass().getSimpleName())){
-            estructura = insercion;
+        boolean temp = !"EComposite".equals(ultimo.getClass().getSimpleName());
+        ultimo = ultimo.insertar(numero);
+        if(temp){
+            primero = ultimo;
         }
     }
     
     public void eliminar() {
-        estructura = estructura.eliminar();
-        if(!"EComposite".equals(estructura.getClass().getSimpleName())){
-            insercion = estructura;
+        primero = primero.eliminar();
+        boolean temp = !"EComposite".equals(primero.getClass().getSimpleName());
+        if(temp){
+            ultimo = primero;
         }
     }
+    
 }
