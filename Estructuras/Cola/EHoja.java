@@ -2,7 +2,7 @@ package Estructuras.Cola;
 
 class EHoja implements Estructura {
 
-    private final int numero;
+    final int numero;
 
     public EHoja(int numero){
         this.numero = numero;
@@ -15,7 +15,7 @@ class EHoja implements Estructura {
 
     @Override
     public Estructura insertar(int numero) {
-        return new EComposite(new EHoja(numero), this);
+        return new EComposite(new EHoja(numero), this.numero);
     }
 
     @Override

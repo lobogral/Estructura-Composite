@@ -3,21 +3,21 @@ package Estructuras.Pila;
 class EComposite implements Estructura {
 
     private final Estructura estructura;
-    private final EHoja hoja;
+    private final int numero;
 
-    public EComposite(Estructura estructura, EHoja hoja){
+    public EComposite(Estructura estructura, int hoja){
         this.estructura = estructura;
-        this.hoja = hoja;
+        this.numero = hoja;
     }
 
     @Override
     public String imprimir() {
-        return hoja.imprimir() + ", " + estructura.imprimir();
+        return numero + ", " + estructura.imprimir();
     }
 
     @Override
     public Estructura insertar(int numero) {
-        return new EComposite(this, new EHoja(numero));
+        return new EComposite(this, numero);
     }
 
     @Override

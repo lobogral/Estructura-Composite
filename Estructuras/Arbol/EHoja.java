@@ -1,4 +1,4 @@
-package Estructuras.Pila;
+package Estructuras.Arbol;
 
 class EHoja implements Estructura {
 
@@ -15,12 +15,13 @@ class EHoja implements Estructura {
 
     @Override
     public Estructura insertar(int numero) {
-        return new EComposite(this, numero);
-    }
-
-    @Override
-    public Estructura eliminar() {
-        return new EVacio();
+        if (numero > this.numero){
+            return new ERamaDer(this.numero, new EHoja(numero));
+        } else if (numero < this.numero){
+            return new ERamaIzq(this.numero, new EHoja(numero));
+        } else {
+            return this;
+        }
     }
 
 }
