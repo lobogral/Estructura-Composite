@@ -1,20 +1,24 @@
-import Estructuras.Cola.Contenedor;
+import Estructuras.Arbol.Contenedor;
 
 public class Principal {
 
     public static void main(String[] args) {
 
-        int[] numInsertar = {12, 7, 21, 4, 9, 16, 25, 2, 8, 11, 19};
+        int[] numInsertar = {8, 3, 10, 1, 6, 14, 4, 7, 13};
         
         Contenedor lista = new Contenedor();
-        lista.imprimir();
+        //lista.imprimir();
         
         for(int i=0; i<numInsertar.length; i++){
             lista.insertar(numInsertar[i]);
-            lista.imprimir();
+            //lista.imprimir();
         }
         
+        lista.imprimir("preorden");
+        lista.imprimir("inorden");
+        lista.imprimir("postorden");
         
+        /*
         for(int i=0; i<numInsertar.length + 1; i++){
             lista.eliminar();
             lista.imprimir();
@@ -28,6 +32,6 @@ public class Principal {
         lista.imprimir();
         lista.eliminar();
         lista.imprimir();
-        
+        */
     }
 }

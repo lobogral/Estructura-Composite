@@ -9,7 +9,7 @@ class EHoja implements Estructura {
     }
 
     @Override
-    public String imprimir() {
+    public String imprimir(String tipo) {
         return "" + numero;
     }
 

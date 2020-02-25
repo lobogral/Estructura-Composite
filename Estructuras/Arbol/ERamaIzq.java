@@ -2,7 +2,7 @@ package Estructuras.Arbol;
 
 class ERamaIzq implements Estructura {
 
-    private final Estructura estructura;
+    private Estructura estructura;
     private final int numero;
 
     public ERamaIzq(int numero, Estructura estructura){
@@ -11,8 +11,12 @@ class ERamaIzq implements Estructura {
     }
 
     @Override
-    public String imprimir() {
-        return estructura.imprimir() + ", " + numero;
+    public String imprimir(String tipo) {
+        if("preorden".equals(tipo)){
+            return numero + ", " + estructura.imprimir(tipo);
+        } else {
+            return estructura.imprimir(tipo) + ", " + numero;
+        }
     }
 
     @Override
@@ -20,7 +24,7 @@ class ERamaIzq implements Estructura {
         if (numero > this.numero){
             return new EArbol(estructura, new EHoja(numero), this.numero);
         } else if (numero < this.numero){
-            estructura.insertar(numero);
+            estructura = estructura.insertar(numero);
         }
         return this;
     }

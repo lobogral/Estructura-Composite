@@ -2,7 +2,7 @@ package Estructuras.Arbol;
 
 class ERamaDer implements Estructura {
 
-    private final Estructura estructura;
+    private Estructura estructura;
     private final int numero;
 
     public ERamaDer(int numero, Estructura estructura){
@@ -11,8 +11,12 @@ class ERamaDer implements Estructura {
     }
 
     @Override
-    public String imprimir() {
-        return numero + ", " + estructura.imprimir();
+    public String imprimir(String tipo) {
+        if ("postorden".equals(tipo)){
+            return estructura.imprimir(tipo) + ", " + numero;
+        } else {
+            return numero + ", " + estructura.imprimir(tipo);
+        }
     }
 
     @Override
@@ -20,7 +24,7 @@ class ERamaDer implements Estructura {
         if (numero < this.numero){
             return new EArbol(new EHoja(numero), estructura, this.numero);
         } else if (numero > this.numero){
-            estructura.insertar(numero);
+            estructura = estructura.insertar(numero);
         } 
         return this;
     }

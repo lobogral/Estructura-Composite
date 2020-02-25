@@ -8,8 +8,8 @@ public class Contenedor {
         estructura = new EVacio();
     }
 
-    public void imprimir(){
-        System.out.println("[" + estructura.imprimir() + "]");
+    public void imprimir(String tipo){
+        System.out.println("[" + estructura.imprimir(tipo) + "]");
     }
 
     public void insertar(int numero){

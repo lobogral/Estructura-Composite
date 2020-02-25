@@ -13,10 +13,15 @@ class EArbol implements Estructura {
     }
 
     @Override
-    public String imprimir() {
-        return ramaIzq.imprimir() + ", " 
-             + numero + ", " 
-             + ramaDer.imprimir();
+    public String imprimir(String tipo) {
+        switch (tipo) {
+            case "preorden":
+                return numero + ", " + ramaIzq.imprimir(tipo) + ", " + ramaDer.imprimir(tipo);
+            case "inorden":
+                return ramaIzq.imprimir(tipo) + ", " + numero + ", " + ramaDer.imprimir(tipo);
+            default:
+                return ramaIzq.imprimir(tipo) + ", " + ramaDer.imprimir(tipo) + ", " + numero;
+        }
     }
 
     @Override
