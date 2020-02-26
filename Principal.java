@@ -1,4 +1,4 @@
-import Estructuras.Arbol.Contenedor;
+import Estructuras.Cola.Contenedor;
 
 public class Principal {
 
@@ -14,24 +14,24 @@ public class Principal {
             //lista.imprimir();
         }
         
-        lista.imprimir("preorden");
-        lista.imprimir("inorden");
-        lista.imprimir("postorden");
+        //lista.imprimir("preorden");
+        //lista.imprimir("inorden");
+        //lista.imprimir("postorden");
         
-        /*
+        
         for(int i=0; i<numInsertar.length + 1; i++){
             lista.eliminar();
-            lista.imprimir();
+            //lista.imprimir();
         }
         
         lista.insertar(33);
-        lista.imprimir();
+        //lista.imprimir();
         lista.insertar(44);
-        lista.imprimir();
+        //lista.imprimir();
         lista.eliminar();
-        lista.imprimir();
+        //lista.imprimir();
         lista.eliminar();
-        lista.imprimir();
-        */
+        //lista.imprimir();
+        
     }
 }
