@@ -5,11 +5,6 @@ class ELista implements Estructura {
     private ELista lista;
     private final int numero;
     private static int numElems = 2;
-
-    public ELista(ELista lista, int hoja){
-        this.lista = lista;
-        this.numero = hoja;
-    }
     
     public ELista(int hoja){
         this.numero = hoja;
@@ -35,7 +30,9 @@ class ELista implements Estructura {
     @Override
     public Estructura insertar(int numero) {
         numElems++;
-        return lista = new ELista(lista, numero); 
+        ELista nuevo = new ELista(numero);
+        nuevo.setELista(lista);
+        return lista = nuevo; 
     }
 
     @Override

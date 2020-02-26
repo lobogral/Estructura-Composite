@@ -16,10 +16,10 @@ class EHoja implements Estructura {
     @Override
     public Estructura insertar(int numero) {
         ELista actual = new ELista(this.numero);
-        ELista siguiente = new ELista(numero);
-        actual.setELista(siguiente);
-        siguiente.setELista(actual);
-        return siguiente;
+        ELista nuevo = new ELista(numero);
+        actual.setELista(nuevo);
+        nuevo.setELista(actual);
+        return nuevo;
     }
 
     @Override
