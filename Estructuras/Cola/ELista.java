@@ -4,6 +4,7 @@ class ELista implements Estructura {
 
     private ELista lista;
     private final int numero;
+    private static int numElems = 2;
 
     public ELista(ELista lista, int hoja){
         this.lista = lista;
@@ -19,16 +20,27 @@ class ELista implements Estructura {
     }
     
     @Override
+    public String imprimir() {
+        return imprimir(numElems);
+    }
+    
+    private String imprimir(int numElems){
+        if(numElems > 1){
+            return lista.numero + ", " + lista.imprimir(numElems - 1);
+        } else {
+            return "" + lista.numero;
+        }
+    }
+    
+    @Override
     public Estructura insertar(int numero) {
-        System.out.println("" + numero);
-        lista = new ELista(lista, numero);            
-        return lista;
+        numElems++;
+        return lista = new ELista(lista, numero); 
     }
 
     @Override
     public Estructura eliminar() {
-        System.out.println("" + lista.numero);
-        System.out.println("----");
+        numElems = (numElems == 2 ? numElems : numElems - 1);
         if(lista.lista == this){
             return new EHoja(numero);
         } else {
